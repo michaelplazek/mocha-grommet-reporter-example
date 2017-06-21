@@ -11,17 +11,27 @@ describe('Our first suite', () => {
   // });
 
   it('test 1.1', (done) => {
-    let num = getRand(0, 10000);
+    let num = getRand(0, 5000);
     setTimeout(function(){return getBoolTrue(done);}, num);
   });
 
   it('test 1.2', (done) => {
-    let num = getRand(0, 10000);
-    setTimeout(function(){return getBoolFalse(done);}, num);
+    let num = getRand(0, 5000);
+    setTimeout(function(){return getBoolTrue(done);}, num);
   });
 
   it('test 1.3', (done) => {
-    let num = getRand(0, 10000);
+    let num = getRand(0, 5000);
+    setTimeout(function(){return getBoolFalse(done);}, num);
+  });
+
+  it('test 1.4', (done) => {
+    let num = getRand(0, 5000);
+    setTimeout(function(){return getBoolTrue(done);}, num);
+  });
+
+  it('test 1.5', (done) => {
+    let num = getRand(0, 5000);
     setTimeout(function(){return getBoolFalse(done);}, num);
   });
 });
@@ -30,13 +40,13 @@ function getBoolTrue(done) {
   console.log(new Date());
   expect(true).toEqual(true);
   done();
-};
+}
 
 function getBoolFalse(done) {
   console.log(new Date());
   expect(false).toEqual(true);
   done();
-};
+}
 
 function getRand(min, max){
   min = Math.ceil(min);
@@ -44,6 +54,6 @@ function getRand(min, max){
 
   let rand = Math.floor(Math.random() * (max - min + 1) + min);
 
-  console.log('rand:', rand)
+  console.log('rand:', rand);
   return rand;
-};
+}
