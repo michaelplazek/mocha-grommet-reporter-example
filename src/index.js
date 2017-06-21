@@ -1,4 +1,4 @@
-import mochaUi from 'mocha-ui';
+import mochaUi from 'mocha-grommet-reporter';
 
 import { Mocha } from 'mocha/mocha.js';
 

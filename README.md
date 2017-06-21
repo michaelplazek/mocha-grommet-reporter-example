@@ -1,5 +1,8 @@
-# mocha-ui
-Mocha UI built in React/Grommet for clearly displaying test results
+# Mocha Grommet Reporter Example
 
-# To run:
+This is test file to run with the [mocha-grommet-reporter](https://www.npmjs.com/package/mocha-grommet-reporter) 
 
+## To run:
+
+1. npm install 
+1. npm start
