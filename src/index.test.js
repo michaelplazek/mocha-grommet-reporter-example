@@ -43,8 +43,13 @@ function getBoolTrue(done) {
 }
 
 function getBoolFalse(done) {
-  console.log(new Date());
-  expect(false).toEqual(true);
+  try{
+    console.log(new Date());
+    expect(false).toEqual(true);
+  }
+  catch(error){
+    throw new Error('you are a failure');
+  }
   done();
 }
 
