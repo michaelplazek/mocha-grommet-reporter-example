@@ -1,7 +1,7 @@
 {
-  "name": "mocha-ui",
+  "name": "mocha-grommet-reporter-example",
   "version": "0.0.1",
-  "description": "Mocha UI for API testing by Michael Plazek",
+  "description": "set of tests to be used with the mocha-grommet-reporter",
   "scripts": {
     "prestart": "babel-node tools/startMessage.js",
     "start": "npm-run-all --parallel test:watch open:src lint:watch",
@@ -12,7 +12,7 @@
     "test": "mocha --opts ./.mocharc tools/testSetup.js \"src/**/*.test.js\"",
     "test:watch": "npm run test -- --watch"
   },
-  "author": "Tyr",
+  "author": "Michael Plazek",
   "dependencies": {
     "mocha-grommet-reporter": "^1.0.0"
   },
@@ -36,9 +36,10 @@
     "express": "4.13.4",
     "extract-text-webpack-plugin": "1.0.1",
     "file-loader": "0.8.5",
+    "jsdom": "^11.0.0",
     "mocha": "^3.4.2",
-    "open": "^0.0.5",
     "npm-run-all": "1.8.0",
+    "open": "^0.0.5",
     "style-loader": "0.13.1",
     "url-loader": "0.5.7",
     "webpack": "1.13.0",
@@ -47,6 +48,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "http://git@github.hpe.com:michael-plazek/mocha-ui.git"
+    "url": "http://git@github.hpe.com:michael-plazek/mocha-grommet-reporter-example.git"
   }
 }
