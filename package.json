@@ -1,6 +1,6 @@
 {
   "name": "mocha-grommet-reporter-example",
-  "version": "0.0.1",
+  "version": "^0.0.1",
   "description": "set of tests to be used with the mocha-grommet-reporter",
   "scripts": {
     "prestart": "babel-node tools/startMessage.js",
@@ -14,7 +14,7 @@
   },
   "author": "Michael Plazek",
   "dependencies": {
-    "mocha-grommet-reporter": "^1.0.0"
+    "mocha-grommet-reporter": "^0.0.5"
   },
   "devDependencies": {
     "babel-cli": "6.8.0",

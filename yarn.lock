@@ -612,7 +612,7 @@ babel-plugin-transform-strict-mode@^6.24.1:
     babel-runtime "^6.22.0"
     babel-types "^6.24.1"
 
-babel-polyfill@6.8.0, babel-polyfill@^6.8.0:
+babel-polyfill@^6.8.0:
   version "6.8.0"
   resolved "https://registry.yarnpkg.com/babel-polyfill/-/babel-polyfill-6.8.0.tgz#6e33fa0c26bb6dc7d6f171176184fd5b95e456c2"
   dependencies:
@@ -2448,13 +2448,9 @@ https-browserify@0.0.0:
   version "0.0.0"
   resolved "https://registry.yarnpkg.com/https-browserify/-/https-browserify-0.0.0.tgz#b3ffdfe734b2a3d4a9efd58e8654c91fce86eafd"
 
-iconv-lite@0.4.13:
+iconv-lite@0.4.13, iconv-lite@~0.4.13:
   version "0.4.13"
   resolved "https://registry.yarnpkg.com/iconv-lite/-/iconv-lite-0.4.13.tgz#1f88aba4ab0b1508e8312acc39345f36e992e2f2"
-
-iconv-lite@~0.4.13:
-  version "0.4.18"
-  resolved "https://registry.yarnpkg.com/iconv-lite/-/iconv-lite-0.4.18.tgz#23d8656b16aae6742ac29732ea8f0336a4789cf2"
 
 icss-replace-symbols@^1.1.0:
   version "1.1.0"
@@ -3471,13 +3467,13 @@ mkdirp@0.5.1, "mkdirp@>=0.5 0", mkdirp@^0.5.0, mkdirp@^0.5.1, mkdirp@~0.5.0, mkd
   dependencies:
     minimist "0.0.8"
 
-mocha-grommet-reporter@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/mocha-grommet-reporter/-/mocha-grommet-reporter-1.0.0.tgz#1ab97ec797910c53f6dd7e0dccfa2329a8589456"
+mocha-grommet-reporter@^0.0.5:
+  version "0.0.5"
+  resolved "https://registry.yarnpkg.com/mocha-grommet-reporter/-/mocha-grommet-reporter-0.0.5.tgz#aac27d6c42005cb23b481c25dfd98a0949fdf448"
   dependencies:
-    babel-polyfill "6.8.0"
     grommet "^1.4.1"
     grommet-addons "*"
+    jsdom "^11.0.0"
     prop-types "^15.5.10"
     react "^15.6.0"
     react-dom "^15.5.4"
