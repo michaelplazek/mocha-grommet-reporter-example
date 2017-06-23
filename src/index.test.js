@@ -3,13 +3,15 @@ import expect from 'expect';
 describe('Our first suite', () => {
 
   it('test 1.1', (done) => {
-    let num = getRand(0, 5000);
-    setTimeout(function(){return getBoolTrue(done);}, num);
+    getBoolTrue(done);
+    // let num = getRand(0, 5000);
+    // setTimeout(function(){return getBoolTrue(done);}, num);
   });
 
   it('test 1.2', (done) => {
-    let num = getRand(0, 5000);
-    setTimeout(function(){return getBoolTrue(done);}, num);
+    getBoolTrue(done);
+    // let num = getRand(0, 5000);
+    // setTimeout(function(){return getBoolTrue(done);}, num);
   });
 });
 
