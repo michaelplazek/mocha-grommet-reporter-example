@@ -1,6 +1,6 @@
 {
   "name": "mocha-grommet-reporter-example",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "set of tests to be used with the mocha-grommet-reporter",
   "scripts": {
     "prestart": "babel-node tools/startMessage.js",

@@ -2,14 +2,6 @@ import expect from 'expect';
 
 describe('Our first suite', () => {
 
-  // it.only('test 3.1', (done) => {
-  //   let num = getRand(0, 10000);
-  //   setTimeout(() => {
-  //     expect(true).toBe(false);
-  //     done();
-  //   }, num);
-  // });
-
   it('test 1.1', (done) => {
     let num = getRand(0, 5000);
     setTimeout(function(){return getBoolTrue(done);}, num);
@@ -19,38 +11,48 @@ describe('Our first suite', () => {
     let num = getRand(0, 5000);
     setTimeout(function(){return getBoolTrue(done);}, num);
   });
+});
 
-  it('test 1.3', (done) => {
+describe('Our second suite', () => {
+
+  it('test 2.1', (done) => {
     let num = getRand(0, 5000);
     setTimeout(function(){return getBoolFalse(done);}, num);
   });
 
-  it('test 1.4', (done) => {
+  it('test 2.2', (done) => {
     let num = getRand(0, 5000);
     setTimeout(function(){return getBoolTrue(done);}, num);
   });
+});
 
-  it('test 1.5', (done) => {
+describe('Our third suite', () => {
+
+  it('test 3.1', (done) => {
+    let num = getRand(0, 5000);
+    setTimeout(function(){return getBoolFalse(done);}, num);
+  });
+
+  it('test 3.2', (done) => {
     let num = getRand(0, 5000);
     setTimeout(function(){return getBoolFalse(done);}, num);
   });
 });
 
 function getBoolTrue(done) {
-  console.log(new Date());
   expect(true).toEqual(true);
   done();
 }
 
 function getBoolFalse(done) {
   try{
-    console.log(new Date());
     expect(false).toEqual(true);
+    done();
   }
   catch(error){
-    throw new Error('you are a failure');
+    done(error);
   }
-  done();
+
 }
 
 function getRand(min, max){
@@ -59,6 +61,5 @@ function getRand(min, max){
 
   let rand = Math.floor(Math.random() * (max - min + 1) + min);
 
-  console.log('rand:', rand);
   return rand;
 }
