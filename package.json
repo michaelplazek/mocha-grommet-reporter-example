@@ -27,6 +27,7 @@
     "babel-register": "6.8.0",
     "colors": "1.1.2",
     "css-loader": "0.23.1",
+    "enzyme": "^2.9.1",
     "eslint": "2.9.0",
     "eslint-plugin-import": "1.6.1",
     "eslint-plugin-react": "5.0.1",
