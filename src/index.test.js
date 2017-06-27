@@ -18,25 +18,63 @@ describe('Our first suite', () => {
 describe('Our second suite', () => {
 
   it('test 2.1', (done) => {
-    let num = getRand(0, 5000);
+    let num = getRand(0, 2000);
     setTimeout(function(){return getBoolFalse(done);}, num);
   });
 
   it('test 2.2', (done) => {
-    let num = getRand(0, 5000);
+    let num = getRand(0, 2000);
     setTimeout(function(){return getBoolTrue(done);}, num);
+  });
+
+  it('test 2.3', (done) => {
+    let num = getRand(0, 2000);
+    setTimeout(function(){return getBoolFalse(done);}, num);
+  });
+
+  it('test 2.4', (done) => {
+    let num = getRand(0, 2000);
+    setTimeout(function(){return getBoolFalse(done);}, num);
   });
 });
 
 describe('Our third suite', () => {
 
   it('test 3.1', (done) => {
-    let num = getRand(0, 5000);
+    let num = getRand(0, 2000);
     setTimeout(function(){return getBoolFalse(done);}, num);
   });
 
   it('test 3.2', (done) => {
-    let num = getRand(0, 5000);
+    let num = getRand(0, 2000);
+    setTimeout(function(){return getBoolFalse(done);}, num);
+  });
+});
+
+describe('Our fourth suite', () => {
+
+  it('test 4.1', (done) => {
+    let num = getRand(0, 2000);
+    setTimeout(function(){return getBoolTrue(done);}, num);
+  });
+
+  it('test 4.2', (done) => {
+    let num = getRand(0, 2000);
+    setTimeout(function(){return getBoolFalse(done);}, num);
+  });
+
+  it('test 4.3', (done) => {
+    let num = getRand(0, 2000);
+    setTimeout(function(){return getBoolFalse(done);}, num);
+  });
+
+  it('test 4.4', (done) => {
+    let num = getRand(0, 2000);
+    setTimeout(function(){return getBoolFalse(done);}, num);
+  });
+
+  it('test 4.5', (done) => {
+    let num = getRand(0, 2000);
     setTimeout(function(){return getBoolFalse(done);}, num);
   });
 });

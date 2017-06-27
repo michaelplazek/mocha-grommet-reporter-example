@@ -10,5 +10,6 @@ mocha.setup({
 });
 
 require('./index.test.js');
+require('./more.test.js');
 
 mocha.run();
