@@ -9,9 +9,9 @@ mocha.setup({
   reporter: mochaUi
 });
 
-// require('mocha-grommet-reporter/src/Main.test.js');
 require('./index.test.js');
 require('./more.test.js');
+require('./allpass.test.js');
 
 mocha.run();
 
