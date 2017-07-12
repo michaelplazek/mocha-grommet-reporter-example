@@ -21,7 +21,7 @@ describe('Our second suite', () => {
 
   it('test 2.1', (done) => {
     let num = getRand(0, MAX_DELAY);
-    setTimeout(function(){return getBoolFalse(done);}, num);
+    setTimeout(function(){return getBoolTrue(done);}, 5000);
   });
 
   it('test 2.2', (done) => {
@@ -31,7 +31,7 @@ describe('Our second suite', () => {
 
   it('test 2.3', (done) => {
     let num = getRand(0, MAX_DELAY);
-    setTimeout(function(){return getBoolFalse(done);}, num);
+    setTimeout(function(){return getBoolTrue(done);}, 4000);
   });
 
   it('test 2.4', (done) => {

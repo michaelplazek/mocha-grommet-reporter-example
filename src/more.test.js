@@ -17,6 +17,36 @@ describe('another suite 1', () => {
 
 describe('another suite 2', () => {
 
+  describe('nested in beginning of second suite', () => {
+
+    it('another test 3.1.1', (done) => {
+      getBoolFalse(done);
+      // let num = getRand(0, 5000);
+      // setTimeout(function(){return getBoolTrue(done);}, num);
+    });
+
+    it('another test 3.2.1', (done) => {
+      getBoolTrue(done);
+      // let num = getRand(0, 5000);
+      // setTimeout(function(){return getBoolTrue(done);}, num);
+    });
+
+    describe('nested at end of suite nested in suite 2', () => {
+
+      it('another test 3.1.1.1', (done) => {
+        getBoolFalse(done);
+        // let num = getRand(0, 5000);
+        // setTimeout(function(){return getBoolTrue(done);}, num);
+      });
+
+      it('another test 3.2.1.1', (done) => {
+        getBoolTrue(done);
+        // let num = getRand(0, 5000);
+        // setTimeout(function(){return getBoolTrue(done);}, num);
+      });
+    });
+  });
+
   it('another test 2.1', (done) => {
     getBoolTrue(done);
     // let num = getRand(0, 5000);
