@@ -26,7 +26,7 @@ describe('Our second suite', () => {
 
   it('test 2.2', (done) => {
     let num = getRand(0, MAX_DELAY);
-    setTimeout(function(){return getBoolFalse(done);}, 20000);
+    setTimeout(function(){return getBoolTrue(done);}, 3000);
   });
 
   it('test 2.3', (done) => {
