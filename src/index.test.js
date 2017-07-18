@@ -26,12 +26,12 @@ describe('Our second suite', () => {
 
   it('test 2.2', (done) => {
     let num = getRand(0, MAX_DELAY);
-    setTimeout(function(){return getBoolTrue(done);}, 3000);
+    setTimeout(function(){return getBoolTrue(done);}, num);
   });
 
   it('test 2.3', (done) => {
     let num = getRand(0, MAX_DELAY);
-    setTimeout(function(){return getBoolTrue(done);}, 4000);
+    setTimeout(function(){return getBoolTrue(done);}, num);
   });
 
   it('test 2.4', (done) => {
