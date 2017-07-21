@@ -9,9 +9,12 @@ mocha.setup({
   reporter: mochaUi
 });
 
-require('./index.test.js');
-require('./more.test.js');
-require('./allpass.test.js');
+require('./spotify.test.js');
+require('./twitch.test.js');
+require('./hearthstone.test.js');
+// require('./index.test.js');
+// require('./more.test.js');
+// require('./allpass.test.js');
 
 mocha.run();
 

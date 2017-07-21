@@ -1,13 +1,14 @@
-import webpack from 'webpack';
-import path from 'path';
+var webpack = require('webpack');
+var path = require('path');
 
-export default {
-  debug: true,
+var HttpProxyAgent = require('https-proxy-agent');
+var proxyServer = process.env.HTTP_PROXY || process.env.HTTPS_PROXY;
+
+module.exports =  {
   devtool: 'inline-source-map',
-  noInfo: true,
   entry: [
-    'eventsource-polyfill', // necessary for hot reloading with IE
-    'webpack-hot-middleware/client?reload=true', //note that it reloads the page if hot module reloading fails.
+    // 'eventsource-polyfill', // necessary for hot reloading with IE
+    // 'webpack-hot-middleware/client?reload=true', //note that it reloads the page if hot module reloading fails.
     path.resolve(__dirname, 'src/index')
   ],
   target: 'web',
@@ -17,23 +18,35 @@ export default {
     filename: 'bundle.js'
   },
   devServer: {
-    contentBase: path.resolve(__dirname, 'src')
+    contentBase: path.resolve(__dirname, 'src'),
+    proxy: {
+      '/spotify': {
+        target: 'https://accounts.spotify.com',
+        pathRewrite: {'^/spotify' : ''},
+        logLevel: 'debug',
+        changeOrigin: true,
+        secure: false,
+        agent: new HttpProxyAgent(proxyServer)
+      }
+    }
     // stats: 'errors-only'
   },
   plugins: [
-    new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoErrorsPlugin()
+    // new webpack.HotModuleReplacementPlugin(),
+    new webpack.NoEmitOnErrorsPlugin(),
+    new webpack.EnvironmentPlugin(['SPOTIFY_SECRET', 'SPOTIFY_KEY'])
   ],
   module: {
     loaders: [
       {test: /\.js$/, include: [
         path.join(__dirname, 'src')
-      ], loaders: ['babel']},
-      {test: /(\.css)$/, loaders: ['style', 'css']},
-      {test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, loader: 'file'},
-      {test: /\.(woff|woff2)$/, loader: 'url?prefix=font/&limit=5000'},
-      {test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/, loader: 'url?limit=10000&mimetype=application/octet-stream'},
-      {test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, loader: 'url?limit=10000&mimetype=image/svg+xml'}
+      ], loaders: ['babel-loader']},
+      {test: /\.json$/, loader: 'json-loader' },
+      {test: /(\.css)$/, loaders: ['style-loader', 'css-loader']},
+      {test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, loader: 'file-loader'},
+      {test: /\.(woff|woff2)$/, loader: 'url-loader?prefix=font/&limit=5000'},
+      {test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/, loader: 'url-loader?limit=10000&mimetype=application/octet-stream'},
+      {test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, loader: 'url-loader?limit=10000&mimetype=image/svg+xml'}
     ]
   }
 };
