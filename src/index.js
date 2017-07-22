@@ -13,6 +13,7 @@ require('./spotify.test.js');
 require('./twitch.test.js');
 require('./hearthstone.test.js');
 require('./twitter.test.js');
+require('./youtube.test.js');
 // require('./index.test.js');
 // require('./more.test.js');
 // require('./allpass.test.js');

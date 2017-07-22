@@ -43,6 +43,14 @@ module.exports =  {
         changeOrigin: true,
         secure: false
         // agent: new HttpProxyAgent(proxyServer)
+      },
+      '/youtube': {
+        target: 'https://www.googleapis.com/youtube/v3',
+        pathRewrite: {'^/youtube' : ''},
+        logLevel: 'debug',
+        changeOrigin: true,
+        secure: false
+        // agent: new HttpProxyAgent(proxyServer)
       }
     }
     // stats: 'errors-only'
@@ -50,7 +58,7 @@ module.exports =  {
   plugins: [
     // new webpack.HotModuleReplacementPlugin(),
     new webpack.NoEmitOnErrorsPlugin(),
-    new webpack.EnvironmentPlugin(['TWITTER_SECRET','TWITTER_KEY','SPOTIFY_SECRET', 'SPOTIFY_KEY'])
+    new webpack.EnvironmentPlugin(['TWITTER_SECRET','TWITTER_KEY','SPOTIFY_SECRET', 'SPOTIFY_KEY','YOUTUBE_KEY'])
   ],
   module: {
     loaders: [
