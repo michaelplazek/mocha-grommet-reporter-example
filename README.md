@@ -4,7 +4,7 @@ This is test file to run with the [mocha-grommet-reporter](https://www.npmjs.com
 
 ## If you using for API calls, set environment variables. ie. calling Spotify
 
-'''
+```
 
 HTTP_PROXY={proxy address}
 HTTPS_PROXY={proxy address}
@@ -12,11 +12,11 @@ HTTPS_PROXY={proxy address}
 SPOTIFY_KEY={key}
 SPOTIFY_SECRET={secret}
 
-'''
+```
 
 ## Set webpack proxy config with correct endpoints
 
-'''
+```
 
 var HttpProxyAgent = require('https-proxy-agent');
 var proxyServer = process.env.HTTP_PROXY || process.env.HTTPS_PROXY;
@@ -43,7 +43,7 @@ var proxyServer = process.env.HTTP_PROXY || process.env.HTTPS_PROXY;
       new webpack.EnvironmentPlugin(['SPOTIFY_SECRET', 'SPOTIFY_KEY'])
     ],
 
-'''
+```
 
 ## To run:
 
