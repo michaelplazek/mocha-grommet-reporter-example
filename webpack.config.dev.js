@@ -2,7 +2,7 @@ var webpack = require('webpack');
 var path = require('path');
 
 var HttpProxyAgent = require('https-proxy-agent');
-var proxyServer = process.env.HTTP_PROXY || process.env.HTTPS_PROXY;
+// var proxyServer = process.env.HTTP_PROXY || process.env.HTTPS_PROXY;
 
 module.exports =  {
   devtool: 'inline-source-map',
@@ -20,13 +20,29 @@ module.exports =  {
   devServer: {
     contentBase: path.resolve(__dirname, 'src'),
     proxy: {
-      '/spotify': {
+      '/spotifyAccounts': {
         target: 'https://accounts.spotify.com',
+        pathRewrite: {'^/spotifyAccounts' : ''},
+        logLevel: 'debug',
+        changeOrigin: true,
+        secure: false
+        // agent: new HttpProxyAgent(proxyServer)
+      },
+      '/spotify': {
+        target: 'https://api.spotify.com',
         pathRewrite: {'^/spotify' : ''},
         logLevel: 'debug',
         changeOrigin: true,
-        secure: false,
-        agent: new HttpProxyAgent(proxyServer)
+        secure: false
+        // agent: new HttpProxyAgent(proxyServer)
+      },
+      '/twitter': {
+        target: 'https://api.twitter.com',
+        pathRewrite: {'^/twitter' : ''},
+        logLevel: 'debug',
+        changeOrigin: true,
+        secure: false
+        // agent: new HttpProxyAgent(proxyServer)
       }
     }
     // stats: 'errors-only'
@@ -34,7 +50,7 @@ module.exports =  {
   plugins: [
     // new webpack.HotModuleReplacementPlugin(),
     new webpack.NoEmitOnErrorsPlugin(),
-    new webpack.EnvironmentPlugin(['SPOTIFY_SECRET', 'SPOTIFY_KEY'])
+    new webpack.EnvironmentPlugin(['TWITTER_SECRET','TWITTER_KEY','SPOTIFY_SECRET', 'SPOTIFY_KEY'])
   ],
   module: {
     loaders: [

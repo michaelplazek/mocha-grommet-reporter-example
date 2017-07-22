@@ -5,7 +5,7 @@ let assert = chai.assert;
 require('isomorphic-fetch');
 require('es6-promise').polyfill();
 
-let auth = process.env.SPOTIFY_KEY + ":" + process.env.SPOTIFY_SECRET;
+let auth = process.env.TWITTER_KEY + ":" + process.env.TWITTER_SECRET;
 let token = window.btoa(auth);
 let access_token = null;
 let status = null;
@@ -16,16 +16,16 @@ let initPost = {
   body: 'grant_type=client_credentials',
   headers : {
     'Authorization':'Basic ' + token,
-    'Content-Type':'application/x-www-form-urlencoded'
+    'Content-Type':'application/x-www-form-urlencoded;charset=UTF-8'
   }
 };
 
 let initGet = null;
 
-describe('Spotify API', function(){
+describe('Twitter API', function(){
 
   before(function(done){
-    fetch('/spotifyAccounts/api/token', initPost)
+    fetch('/twitter/oauth2/token', initPost)
       .then(function(response){
         try{
           status = response.status;
@@ -49,11 +49,25 @@ describe('Spotify API', function(){
       });
   });
 
-  it('Search returns valid artist object', function(done){
-    fetch('/spotify/v1/search?q=kendrick&type=artist', initGet)
+  it('Returns access token', function(done){
+    try{
+      expect(status).to.equal(200);
+      done();
+    }
+    catch(error){
+      done(error);
+    }
+  });
+
+  it('Returns valid user object', function(done){
+    fetch(
+      '/twitter1.1/users/lookup.json?screen_name=mike___tv', initGet)
       .then(function(response){
+        return response.json();
+      })
+      .then(function(result){
         try{
-          expect(response.status).to.equal(200);
+          expect(result).to.be.an('array');
           done();
         }
         catch(error){
@@ -62,11 +76,15 @@ describe('Spotify API', function(){
       });
   });
 
-  it('Search returns valid album object', function(done){
-    fetch('/spotify/v1/search?q=kendrick&type=album', initGet)
+  it('Returns valid tweet object', function(done){
+    fetch(
+      '/twitter/1.1/search/tweets.json?q=trump', initGet)
       .then(function(response){
+        return response.json();
+      })
+      .then(function(result){
         try{
-          expect(response.status).to.equal(200);
+          expect(result).to.be.an('object');
           done();
         }
         catch(error){
@@ -75,24 +93,16 @@ describe('Spotify API', function(){
       });
   });
 
-  it('Search returns valid track object', function(done){
-    fetch('/spotify/v1/search?q=kendrick&type=track', initGet)
+  it('Allows tweets to be searched', function(done){
+    fetch(
+      '/twitter/1.1/search/tweets.json?q=%23trump', initGet)
       .then(function(response){
+        expect(response.status).to.equal(200);
+        return response.json();
+      })
+      .then(function(result){
         try{
-          expect(response.status).to.equal(200);
-          done();
-        }
-        catch(error){
-          done(error);
-        }
-      });
-  });
-
-  it('Search returns valid playlist object', function(done){
-    fetch('/spotify/v1/search?q=kendrick&type=playlist', initGet)
-      .then(function(response){
-        try{
-          expect(response.status).to.equal(200);
+          expect(result).to.be.an('object');
           done();
         }
         catch(error){
