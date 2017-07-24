@@ -29,7 +29,7 @@ describe('Spotify API', function(){
       .then(function(response){
         try{
           status = response.status;
-          return response.json();
+          return response;
         }
         catch(error){
           done(error);

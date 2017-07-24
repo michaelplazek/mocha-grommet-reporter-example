@@ -4151,9 +4151,9 @@ mkdirp@0.5.1, mkdirp@0.5.x, "mkdirp@>=0.5 0", mkdirp@^0.5.0, mkdirp@^0.5.1, mkdi
   dependencies:
     minimist "0.0.8"
 
-mocha-grommet-reporter@^1.9.9:
-  version "1.9.9"
-  resolved "https://registry.yarnpkg.com/mocha-grommet-reporter/-/mocha-grommet-reporter-1.9.9.tgz#44966cc74317e6ca87a89962f079be6f5fe79566"
+mocha-grommet-reporter@^1.10.0:
+  version "1.10.0"
+  resolved "https://registry.yarnpkg.com/mocha-grommet-reporter/-/mocha-grommet-reporter-1.10.0.tgz#a157ca29fb5471a4eb3463ce901d53258950b469"
   dependencies:
     cross-env "^5.0.1"
     grommet "^1.4.1"

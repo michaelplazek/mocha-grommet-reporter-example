@@ -29,7 +29,7 @@ describe('Twitter API', function(){
       .then(function(response){
         try{
           status = response.status;
-          return response.json();
+          return response;
         }
         catch(error){
           done(error);
@@ -63,7 +63,7 @@ describe('Twitter API', function(){
     fetch(
       '/twitter1.1/users/lookup.json?screen_name=mike___tv', initGet)
       .then(function(response){
-        return response.json();
+        return response;
       })
       .then(function(result){
         try{
@@ -80,7 +80,7 @@ describe('Twitter API', function(){
     fetch(
       '/twitter/1.1/search/tweets.json?q=trump', initGet)
       .then(function(response){
-        return response.json();
+        return response;
       })
       .then(function(result){
         try{
@@ -98,7 +98,7 @@ describe('Twitter API', function(){
       '/twitter/1.1/search/tweets.json?q=%23trump', initGet)
       .then(function(response){
         expect(response.status).to.equal(200);
-        return response.json();
+        return response;
       })
       .then(function(result){
         try{
